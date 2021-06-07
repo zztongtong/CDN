@@ -1,0 +1,59 @@
+<html>
+
+<head>
+  <title>鲸之声用户博客详情皮肤模板</title>
+  <script src="data.js"></script>
+</head>
+
+<body>
+  <div id="app">
+
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+  <script>
+    var app = new Vue({
+      el: '#app',
+      data: {
+        ...data,//系统提供的数据
+        cusData: '我的数据'//自己定义的方法
+      },
+      methods:{
+        fan(){
+          //this.hostVm.fan();//获取当前用户对作者的关注信息
+        },
+        getUserInfo(){
+          //this.hostVm.getUserInfo();//获取本文作者信息
+        },
+        getAns(){
+          //this.hostVm.getAns();//获取本文的评论信息
+        },
+        getStarInfo(){
+          //this.hostVm.getStarInfo();//获取当前用户对本文章的点赞信息
+        },
+        zanClick(){
+          //this.hostVm.zanClick();//点赞操作
+        },
+        cancelZanOrCai(){
+          //this.hostVm.cancelZanOrCai();//取消赞或踩操作
+        },
+        caiClick(){
+          //this.hostVm.caiClick();//踩操作
+        },
+        reward(){
+          //this.hostVm.reward();//打赏操作
+        },
+        replayClick(ansId,ansName){
+          //this.hostVm.replayClick(ansId,ansName);//评论操作
+        },
+        deleteAnswer(ansId){
+          //this.hostVm.deleteAnswer(ansId);//删除评论操作
+        }
+      },
+      mounted(){
+
+      }
+    })
+  </script>
+</body>
+
+</html>

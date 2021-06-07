@@ -1,0 +1,35 @@
+<html>
+
+<head>
+  <title>鲸之声用户博客首页皮肤模板</title>
+  <script src="data.js"></script>
+</head>
+
+<body>
+  <div id="app">
+    
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+  <script>
+    var app = new Vue({
+      el: '#app',
+      data: {
+        ...data,//系统提供数据
+        cusData:"我的数据",//自己定义的数据
+      },
+      methods:{
+        fan(){
+          //this.hostVm.fan();//调用系统提供关注/取消关注的方法
+        },
+        pageChange(num){
+          //this.hostVm.pageChange(num);//调用系统提供的分页功能
+        }
+      },
+      mounted(){
+
+      }
+    })
+  </script>
+</body>
+
+</html>
