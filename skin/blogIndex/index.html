@@ -7,22 +7,34 @@
 
 <body>
   <div id="app">
-    
+    {{haveFan}}
+    <button @click="fan">关注</button>
   </div>
   <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+  <script>
+    var hostVm={
+      fan(){
+        app.haveFan=!app.haveFan
+      },
+      pageChange(num){
+        alert("分页"+num);
+      }
+    }
+  </script>
   <script>
     var app = new Vue({
       el: '#app',
       data: {
+        hostVm:hostVm,//系统提供
         ...data,//系统提供数据
         cusData:"我的数据",//自己定义的数据
       },
       methods:{
         fan(){
-          //this.hostVm.fan();//调用系统提供关注/取消关注的方法
+          this.hostVm.fan();//调用系统提供关注/取消关注的方法
         },
         pageChange(num){
-          //this.hostVm.pageChange(num);//调用系统提供的分页功能
+          this.hostVm.pageChange(num);//调用系统提供的分页功能
         }
       },
       mounted(){

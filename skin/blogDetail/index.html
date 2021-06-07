@@ -11,42 +11,116 @@
   </div>
   <script src="https://cdn.jsdelivr.net/npm/vue"></script>
   <script>
+    var hostVm={
+      fan(){
+        app.haveFan=!app.haveFan
+      },
+      getUserInfo(){
+        app.userInfo={
+          "userIdStr":"1213329021757165568",
+          "userName":"作者名称",
+          "userImg":"https://w3knows.oss-cn-beijing.aliyuncs.com/1213329021757165568/1365628566829666304.jpg",
+          "gener":1,
+          "accountBalance":1003,
+          "motto":"你的座右铭",
+          "starNum":2342,
+          "commentNum":2323,
+          "fanNum":22,
+          "accessNum":2322
+        };
+      },
+      getAns(){
+        app.ansList=[{
+          "text":"一级评论内容",
+          "createUserName": "评论人名称",
+          "createUserImg": "https://w3knows.oss-cn-beijing.aliyuncs.com/1213329021757165568/1365628566829666304.jpg",
+          "ansIdStr": "1246793511433539584",
+          "createUserIdStr": "1213329021757165568",
+          "createTimeStr": "2020-04-05",
+          "list": [
+              {
+                "text":"二级评论内容",
+                "createUserName": "评论人名称",
+                "createUserImg": "https://w3knows.oss-cn-beijing.aliyuncs.com/1213329021757165568/1365628566829666304.jpg",
+                "ansIdStr": "1246793511433539584",
+                "createUserIdStr": "1213329021757165568",
+                "createTimeStr": "2020-04-05"
+              },
+              {
+                "text":"二级评论内容",
+                "createUserName": "评论人名称",
+                "createUserImg": "https://w3knows.oss-cn-beijing.aliyuncs.com/1213329021757165568/1365628566829666304.jpg",
+                "ansIdStr": "1246793511433539584",
+                "createUserIdStr": "1213329021757165568",
+                "createTimeStr": "2020-04-05"
+              }
+          ]
+        }];
+      },
+      getStarInfo(){
+        app.star=0;
+      },
+      zanClick(){
+        //赞
+        app.star=1;
+      },
+      cancelZanOrCai(){
+        //取消点赞
+        app.star=0;
+      },
+      caiClick(){
+        //踩
+        app.star=2;
+      },
+      reward(){
+        alert("您成功打开了打赏操作框")
+      },
+      replayClick(ansId,ansName){
+        alert("您成功打开了评论操作框")
+      },
+      deleteAnswer(ansId){
+        alert("您成功删除了"+ansId+"评论")
+      }
+    }
+  </script>
+  <script>
     var app = new Vue({
       el: '#app',
       data: {
+        hostVm:hostVm,//系统提供
         ...data,//系统提供的数据
         cusData: '我的数据'//自己定义的方法
       },
       methods:{
         fan(){
-          //this.hostVm.fan();//获取当前用户对作者的关注信息
+          this.hostVm.fan();//获取当前用户对作者的关注信息
         },
         getUserInfo(){
-          //this.hostVm.getUserInfo();//获取本文作者信息
+          this.hostVm.getUserInfo();//获取本文作者信息
         },
         getAns(){
-          //this.hostVm.getAns();//获取本文的评论信息
+          this.hostVm.getAns();//获取本文的评论信息
         },
         getStarInfo(){
-          //this.hostVm.getStarInfo();//获取当前用户对本文章的点赞信息
+          this.hostVm.getStarInfo();//获取当前用户对本文章的点赞信息
         },
         zanClick(){
-          //this.hostVm.zanClick();//点赞操作
+          this.hostVm.zanClick();//点赞操作
         },
         cancelZanOrCai(){
-          //this.hostVm.cancelZanOrCai();//取消赞或踩操作
+          this.hostVm.cancelZanOrCai();//取消赞或踩操作
         },
         caiClick(){
-          //this.hostVm.caiClick();//踩操作
+          this.hostVm.caiClick();//踩操作
         },
         reward(){
-          //this.hostVm.reward();//打赏操作
+          this.hostVm.reward();//打赏操作
         },
         replayClick(ansId,ansName){
-          //this.hostVm.replayClick(ansId,ansName);//评论操作
+          this.hostVm.replayClick(ansId,ansName);//评论操作
         },
         deleteAnswer(ansId){
-          //this.hostVm.deleteAnswer(ansId);//删除评论操作
+          this.hostVm.deleteAnswer(ansId);//删除评论操作
         }
       },
       mounted(){
